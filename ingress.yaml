@@ -1,0 +1,20 @@
+kind: Ingress
+apiVersion: extensions/v1beta1
+metadata:
+  name: blog
+  annotations:
+    kubernetes.io/tls-acme: "True"
+    ingress.bluemix.net/redirect-to-https: "True"
+spec:
+  tls:
+    - secretName: testesports-xyz-tls
+      hosts:
+        - testesports.xyz
+  rules:
+    - host: testesports.xyz
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: blog
+              servicePort: 80

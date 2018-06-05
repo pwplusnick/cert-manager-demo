@@ -1,0 +1,11 @@
+kind: Issuer
+apiVersion: certmanager.k8s.io/v1alpha1
+metadata:
+  name: blog
+spec:
+  acme:
+    server: https://acme-v02.api.letsencrypt.org/directory
+    email: pwplusni@us.ibm.com
+    privateKeySecretRef:
+      name: blog-secret
+    http01: {}
